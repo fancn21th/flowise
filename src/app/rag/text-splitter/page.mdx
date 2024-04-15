@@ -1,0 +1,41 @@
+# Text Splitter
+
+## Why
+
+- LLM 对于 Context 有大小限制 (Context Limit)
+
+  例如 `gpt-4-1106-preview` Context Window 大小是 128,000 tokens
+
+- 太多数据会带来噪音 (Singal to Nosie)
+
+## What
+
+> what is the optimal way for me to pass data my LLM needs for the task
+
+你的目标是不是为了切分数据, 而是规范化数据, 从而更好的被 LLM retrieve
+
+## How
+
+- evaluation
+
+  - [ragas](https://github.com/explodinggradients/ragas)
+
+- 五个级别
+
+  - level 1 字符分隔
+
+    - 基本概念
+
+      [ChunkViz](https://github.com/gkamradt/ChunkViz) 用可视化的方式解释了 以下概念
+
+      - Chunk Size
+      - Chunk Overlap
+      - seperator
+
+  - level2 递归字符分隔
+
+    > 第一个级别的问题在于 没有考虑文档的结构
+
+    - 通过指定分隔符, 递归的切分文档
+
+      - 通过增加 chunk 的大小 基本可以实现 按段落切分
