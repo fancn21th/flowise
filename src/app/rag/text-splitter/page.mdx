@@ -39,3 +39,13 @@
     - 通过指定分隔符, 递归的切分文档
 
       - 通过增加 chunk 的大小 基本可以实现 按段落切分
+
+  - level3 指定文档类型
+
+    > 这个级别的文档本身就带有结构信息
+
+    - markdown
+
+      [源代码 js 版本](https://github.com/langchain-ai/langchainjs/blob/main/langchain/src/text_splitter.ts#L590) 列出了所有的分隔符
+
+      - 初始化的 `chunk_size` 可以在 2000, 4000, 5000, 6000. 随着上下文限制的增加, chunk_size 也会增加
