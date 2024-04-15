@@ -1,0 +1,52 @@
+# 代码调试
+
+## 代码结构
+
+```bash
+.
+├── CODE_OF_CONDUCT-ZH.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING-ZH.md
+├── CONTRIBUTING.md
+├── Dockerfile
+├── LICENSE.md
+├── README-ZH.md
+├── README.md
+├── artillery-load-test.yml
+├── assets
+│   ├── Demo.png
+│   ├── FloWiseAI.png
+│   ├── FloWiseAI_black.png
+│   ├── FloWiseAI_dark.png
+│   └── FloWiseAI_primary.png
+├── babel.config.js
+├── docker
+│   ├── Dockerfile
+│   ├── README.md
+│   └── docker-compose.yml
+├── images
+│   ├── flowise.gif
+│   └── flowise.png
+├── package.json
+├── packages
+│   ├── components
+│   ├── server
+│   └── ui
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+└── turbo.json
+```
+
+## 代码调试
+
+- 调试 sever 代码
+
+  - 打开 [Javascript Debug Terminal](https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_javascript-debug-terminal)
+
+  - 启动
+
+    ```bash
+    node --inspect ./run start
+    ```
+
+  - 打开 [http://localhost:3000/](http://localhost:3000/)
