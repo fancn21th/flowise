@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { Icons } from "./icons";
 import { MainNav } from "./main-nav";
 import { MobileNav } from "./mobile-nav";
+import { ModeToggle } from "./mode-toggle";
 
 function Links() {
   return (
@@ -45,6 +46,7 @@ export function SiteHeader() {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <MainNav />
         <Links />
+        <ModeToggle />
         <MobileNav />
       </div>
     </header>
