@@ -7,9 +7,10 @@ const computedFields = <T extends { slug: string }>(data: T) => ({
   ...data,
   slugAsParams: data.slug.split("/").slice(1).join("/"),
 });
+
 const posts = defineCollection({
   name: "Post", // collection type name
-  pattern: "content/**/*.mdx", // content files glob pattern
+  pattern: "blog/**/*.mdx", // content files glob pattern
   schema: s
     .object({
       slug: s.path(), // slug: s.path(), // auto generate slug from file path
@@ -23,7 +24,7 @@ const posts = defineCollection({
 });
 
 export default defineConfig({
-  root: "src", // project root,
+  root: "src/content", // project root,
   output: {
     data: ".velite",
     assets: "public/static",
