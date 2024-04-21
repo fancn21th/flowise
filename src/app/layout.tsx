@@ -21,6 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // scroll-pt-[3.5rem] is for linkable headings properly offsetting
     <html lang="en" className="scroll-pt-[3.5rem]">
       <body
         className={cn(
