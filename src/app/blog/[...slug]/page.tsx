@@ -1,6 +1,7 @@
 import { posts } from "#site/content";
 import { notFound } from "next/navigation";
 import { MDXContent } from "@/components/mdx-components";
+import "@/styles/mdx.css";
 
 interface PostPageProps {
   params: {
@@ -18,7 +19,9 @@ async function getPostFromParams(params: PostPageProps["params"]) {
 export async function generateStaticParams(): Promise<
   PostPageProps["params"][]
 > {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+  return posts.map((post: { slugAsParams: string }) => ({
+    slug: post.slugAsParams.split("/"),
+  }));
 }
 
 export default async function PostPage({ params }: PostPageProps) {
