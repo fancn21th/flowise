@@ -1,4 +1,7 @@
 import { defineCollection, defineConfig, s } from "velite";
+import rehypeSlug from "rehype-slug";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 // `s` is extended from Zod with some custom schemas,
 // you can also import re-exported `z` from `velite` if you don't need these extension schemas.
@@ -23,6 +26,12 @@ const posts = defineCollection({
     .transform(computedFields), // computed fields
 });
 
+/** @type {import('rehype-pretty-code').Options} */
+const options = {
+  // See Options section below.
+  theme: "github-dark",
+};
+
 export default defineConfig({
   root: "src/content", // project root,
   output: {
@@ -34,7 +43,20 @@ export default defineConfig({
   },
   collections: { posts },
   mdx: {
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypePrettyCode, { theme: "github-dark" }],
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          properties: {
+            className: ["subheading-anchor"],
+            ariaLabel: "Link to section",
+          },
+        },
+      ],
+    ],
     remarkPlugins: [],
-    rehypePlugins: [],
   },
 });

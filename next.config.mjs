@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { build } from "velite";
 
 /** @type {import('next').NextConfig} */
