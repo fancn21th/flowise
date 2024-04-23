@@ -11,9 +11,13 @@ published: true
 
 - LLM 对于 Context 有大小限制 (Context Limit)
 
+  > 给的太少
+
   例如 `gpt-4-1106-preview` Context Window 大小是 128,000 tokens
 
 - 太多数据会带来噪音 (Singal to Nosie)
+
+  > 给的不对
 
 ## What
 
@@ -31,28 +35,43 @@ published: true
 
   - level 1 字符分隔
 
-    - 基本概念
+        - 基本概念
 
-      [ChunkViz](https://github.com/gkamradt/ChunkViz) 用可视化的方式解释了 以下概念
+          [ChunkViz](https://github.com/gkamradt/ChunkViz) 用可视化的方式解释了 以下概念
 
-      - Chunk Size
-      - Chunk Overlap
-      - seperator
+          - Chunk Size
+          - Chunk Overlap
+          - seperator
 
-  - level2 递归字符分隔
+        - 范例
 
-    > 第一个级别的问题在于 没有考虑文档的结构
+          ```python
+            # Create a list that will hold your chunks
+            chunks = []
 
-    - 通过指定分隔符, 递归的切分文档
+            chunk_size = 35 # Characters
 
-      - 通过增加 chunk 的大小 基本可以实现 按段落切分
+            # Run through the a range with the length of your text and iterate every chunk_size you want
+            for i in range(0, len(text), chunk_size):
+              chunk = text[i:i + chunk_size]
+              chunks.append(chunk)
+            chunks
+          ```
 
-  - level3 指定文档类型
+- level2 递归字符分隔
 
-    > 这个级别的文档本身就带有结构信息
+  > 第一个级别的问题在于 没有考虑文档的结构
 
-    - markdown
+  - 通过指定分隔符, 递归的切分文档
 
-      [源代码 js 版本](https://github.com/langchain-ai/langchainjs/blob/main/langchain/src/text_splitter.ts#L590) 列出了所有的分隔符
+    - 通过增加 chunk 的大小 基本可以实现 按段落切分
 
-      - 初始化的 `chunk_size` 可以在 2000, 4000, 5000, 6000. 随着上下文限制的增加, chunk_size 也会增加
+- level3 指定文档类型
+
+  > 这个级别的文档本身就带有结构信息
+
+  - markdown
+
+    [源代码 js 版本](https://github.com/langchain-ai/langchainjs/blob/main/langchain/src/text_splitter.ts#L590) 列出了所有的分隔符
+
+    - 初始化的 `chunk_size` 可以在 2000, 4000, 5000, 6000. 随着上下文限制的增加, chunk_size 也会增加
