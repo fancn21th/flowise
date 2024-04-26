@@ -107,3 +107,24 @@ published: true
     [源代码 js 版本](https://github.com/langchain-ai/langchainjs/blob/main/langchain/src/text_splitter.ts#L590) 列出了所有的分隔符
 
     - 初始化的 `chunk_size` 可以在 2000, 4000, 5000, 6000. 随着上下文限制的增加, chunk_size 也会增加
+
+  - pdf
+
+    - [unstructured](https://unstructured.io/)
+
+      > cool
+
+      - 转化为 narrative text (不是 documents)
+
+        - 可以识别出 table
+
+          - 转成 HTML 方便 LLM 处理
+
+      - 多模态
+
+        - 可以识别 图片
+
+          - 图片文字总结
+
+            - 图片 转化为 base64
+            - `gpt-4-vision-preview` 识别图片文字
