@@ -58,13 +58,45 @@ published: true
             chunks
           ```
 
+         - Llama Index
+
+          - documents 对象
+          - text node 对象
+            - 包含元数据信息
+              - Index
+              - File Name
+              - **Relationship**
+
 - level2 递归字符分隔
 
   > 第一个级别的问题在于 没有考虑文档的结构
 
-  - 通过指定分隔符, 递归的切分文档
+  - 基本概念
+
+    - 通过指定分隔符, 递归的切分文档
 
     - 通过增加 chunk 的大小 基本可以实现 按段落切分
+
+  - 范例
+
+    ```python
+      from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+      text = """
+
+      """
+
+      text_splitter = RecursiveCharacterTextSplitter(chunk_size = 65, chunk_overlap=0)
+
+      text_splitter.create_documents([text])
+
+    ```
+
+  - 增加 chunk 的大小
+
+    - 通过增加 chunk 的大小, 可以实现按段落切分
+
+    - 通过增加 chunk 的大小, 可以实现按句子切分
 
 - level3 指定文档类型
 
