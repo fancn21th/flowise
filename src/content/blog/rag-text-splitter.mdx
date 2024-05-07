@@ -128,3 +128,22 @@ published: true
 
             - 图片 转化为 base64
             - `gpt-4-vision-preview` 识别图片文字
+
+- level4 语义化分隔 (Semantic Chunking)
+
+  > - 前三个级别都是基于字符的分隔, 也是基于文档的结构, 但是没有考虑到文档的语义
+  > - 把文档内容作为分割的依据, 而不是结构
+  > - 前三个级别类比成 图书 按册切分, 语义化分隔类比成 按图书的 genre 切分
+
+  - Heirarchical clustering with positional reward
+
+    - 找到 每个句子 和 相邻句子的 距离
+    - 通过距离, 找到最优的分割点
+
+- level5 Agentic Chunking
+
+  >
+
+  - proposition
+
+    - 代词替换成名词, 每个句子都有一个主语
